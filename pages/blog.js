@@ -1,6 +1,7 @@
 // import * as style from "../styles/index.module.css"
 ///Users/nakaitakashiyoshimi/Dev/Nextjsstdy/LearnNextJs/next-st/styles/index.module.css
 import matter from "gray-matter"
+import Link from 'next/Link'// Linkをインポート
 
 const Blog = (props) => {
     console.log(props);
@@ -10,6 +11,9 @@ const Blog = (props) => {
       {props.blogs.map((blog,index)=>
       <div key={index}>
         <h3>{blog.frontmatter.title}</h3>
+        <p>{blog.frontmatter.date}</p>
+
+        <Link href={`/blog/${blog.slug}`}><a>Read More</a></Link>
 
       </div>
       )
