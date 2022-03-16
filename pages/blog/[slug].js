@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 // コンポ部分
 const SingleBlog =(props) => {
 
-    console.log("props")
+    console.log("props [slug].js")
     console.log(props)
     return(
             <div>
@@ -20,7 +20,9 @@ const SingleBlog =(props) => {
 export default SingleBlog
 
 // 階層を指定してそこからパスを生成
-// getStaticPathsとは？？
+// getStaticPathsとは？
+// getStaticPropsを使用するときに一緒に使うレンダリングをするパス生成用の関数
+// URL生成と登録用の関数というイメージ
 export async function getStaticPaths(){
 
     console.log("getStaticPath");
@@ -48,6 +50,9 @@ export async function getStaticPaths(){
 
 // propsを取得してpropsにセットする
 // getStaticPropsとは？
+// ビルド時にgetStaticPropsのpropsから値を取得することでプリレンダリングすることができ、そのための関数
+// ※プリレンダリング：事前読み込み、サイトのページ単位でHTMLを生成しておくこと
+// データ取り込み用の関数というイメージ
 export async function getStaticProps(context){
     const { slug } =context.params
     console.log("slug");
@@ -57,6 +62,7 @@ export async function getStaticProps(context){
 
     console.log("singleDocument");
     console.log(singleDocument); 
+    
     
 
     return {

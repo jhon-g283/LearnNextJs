@@ -13,6 +13,7 @@ const Blog = (props) => {
         <h3>{blog.frontmatter.title}</h3>
         <p>{blog.frontmatter.date}</p>
 
+        {/* このリンクが何か調べること！！！！ */}
         <Link href={`/blog/${blog.slug}`}><a>Read More</a></Link>
 
       </div>
@@ -62,10 +63,13 @@ export async function getStaticProps(){
     //(require.context('../data', true, /\.md$/))
 
     // console.log(JSON.parse(JSON.stringify(blogs)));
+    const orderedBlogs = blogs.sort((a,b) => {
+        return b.frontmatter.id - a.frontmatter.id
+    })
     return{
         props:{
             // test:testText,
-            blogs:blogs
+            blogs:JSON.parse(JSON.stringify(orderedBlogs))
         },
     
     }
