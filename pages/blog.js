@@ -4,7 +4,9 @@ import matter from "gray-matter"
 import Link from 'next/Link'// Linkをインポート
 
 const Blog = (props) => {
+    console.log("props");
     console.log(props);
+
   return(
   <div>
       <h1>Blog!! !!</h1>
