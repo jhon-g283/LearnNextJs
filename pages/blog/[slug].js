@@ -10,6 +10,7 @@
 // 
 import matter from "gray-matter"
 import ReactMarkdown from 'react-markdown'
+import Image from "next/image"
 
 // コンポ部分
 const SingleBlog =(props) => {
@@ -17,11 +18,22 @@ const SingleBlog =(props) => {
     console.log("props [slug].js")
     console.log(props)
     return(
+        <>
+        <div>
+        <Image src={props.frontmatter.image} alt="blog-image" height={500} width={1000} ></Image>
+
+        </div>
+        <div>
             <div>
                 <h1>{props.frontmatter.title}</h1>
                 <p>{props.frontmatter.date}</p>
                 <ReactMarkdown children={props.markdownBody} />
             </div>
+        </div>
+         
+        
+        </>
+          
 
     )
 }
