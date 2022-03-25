@@ -11,6 +11,8 @@
 import matter from "gray-matter"
 import ReactMarkdown from 'react-markdown'
 import Image from "next/image"
+import Layout from "../../components/layout"//レイアウト用コンポーネント
+import * as style from "../../styles/SingleBlog.module.scss"
 
 // コンポ部分
 const SingleBlog =(props) => {
@@ -18,7 +20,7 @@ const SingleBlog =(props) => {
     console.log("props [slug].js")
     console.log(props)
     return(
-        <>
+        <Layout>
         <div>
         <Image src={props.frontmatter.image} alt="blog-image" height={500} width={1000} ></Image>
 
@@ -32,7 +34,7 @@ const SingleBlog =(props) => {
         </div>
          
         
-        </>
+        </Layout>
           
 
     )

@@ -1,16 +1,18 @@
-// import * as style from "../styles/index.module.css"
+import * as style from "../styles/blog.module.scss"
 ///Users/nakaitakashiyoshimi/Dev/Nextjsstdy/LearnNextJs/next-st/styles/index.module.css
 import matter from "gray-matter"
 import Link from 'next/Link'// Linkをインポート
 import Image  from "next/image";
+import Layout from "../components/layout";//レイアウト用コンポーネント
 
 const Blog = (props) => {
     console.log("props");
     console.log(props);
 
   return(
-  <>
-  <div>
+  <Layout>
+  <div className={style.wrapper}>
+    <div >
       <h1>Blog!! !!</h1>
       <p>This is Enginea's Life</p>
       {props.blogs.map((blog,index)=>{
@@ -33,8 +35,10 @@ const Blog = (props) => {
         })
       
       }
+
+        </div>
       </div>
-    </>
+    </Layout>
   
   
   )
