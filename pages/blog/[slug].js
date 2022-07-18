@@ -21,12 +21,12 @@ const SingleBlog =(props) => {
     console.log(props)
     return(
         <Layout>
-        <div>
+        <div className={style.hero}>
         <Image src={props.frontmatter.image} alt="blog-image" height={500} width={1000} ></Image>
 
         </div>
-        <div>
-            <div>
+        <div className={style.wrapper}>  
+             <div className={style.container}>        
                 <h1>{props.frontmatter.title}</h1>
                 <p>{props.frontmatter.date}</p>
                 <ReactMarkdown children={props.markdownBody} />

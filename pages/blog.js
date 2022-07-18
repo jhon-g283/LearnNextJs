@@ -4,6 +4,7 @@ import matter from "gray-matter"
 import Link from 'next/Link'// Linkをインポート
 import Image  from "next/image";
 import Layout from "../components/layout";//レイアウト用コンポーネント
+// https://github.com/mod728/nextjs-book-portfolio-website
 
 const Blog = (props) => {
     console.log("props");
@@ -12,21 +13,22 @@ const Blog = (props) => {
   return(
   <Layout>
   <div className={style.wrapper}>
-    <div >
+  <div className={style.container}>
       <h1>Blog!! !!</h1>
       <p>This is Enginea's Life</p>
       {props.blogs.map((blog,index)=>{
 
         return(
-      <div key={index}>
-          <div>
+      <div key={index} className={style.blogCard}>
+          <div className={style.textContainer}>
             <h3>{blog.frontmatter.title}</h3>
             <p>{blog.frontmatter.excerpt}</p>
             <p>{blog.frontmatter.date}</p>
             {/* このリンクが何か調べること！！！！ */}
             <Link href={`/blog/${blog.slug}`}><a>Read More</a></Link>
           </div>
-          <div>
+          <div className={style.cardImg}>
+
               <Image src={blog.frontmatter.image} alt="card-image" height={300} width={1000} quality={90}></Image>
           </div>
        
